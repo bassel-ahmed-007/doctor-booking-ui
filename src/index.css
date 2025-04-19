@@ -1,16 +1,79 @@
+@font-face {
+  font-family: poppins;
+  src: url(../src/assets/fonts/Poppins-Regular.ttf);
+}
+
 @import "tailwindcss";
 
+@theme {
+  --font-poppins: poppins, "sans-serif";
+  --color-main-color: #d8b517;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  scroll-behavior: smooth;
+  background-color: #1f1e1d;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* the main contianer style for all pages  *************************/
+.mainContainer {
+  margin: auto;
+}
+
+@media (max-width: 1000px) {
+  .mainContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .mainContainer {
+    max-width: 1000px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .mainContainer {
+    max-width: 1150px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .mainContainer {
+    max-width: 1250px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .mainContainer {
+    max-width: 1400px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .mainContainer {
+    max-width: 1600px;
+  }
+}
+
+/* Scrollbar styles *******************************************************/
+.scroll::-webkit-scrollbar {
+  width: 14px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding-right: 10px;
+  overflow: hidden;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #d8b517;
 }
