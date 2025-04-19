@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { doctors } from "../mock/doctors";
-import { useAppointmentStore } from "../store/useAppointmentStore";
 import { DoctorTypes } from "../types";
-import { toast } from "sonner";
 import ConfirmModal from "./ConfirmModal";
 
 type Props = {
@@ -14,7 +12,42 @@ const BookingModal: React.FC<Props> = ({ doctorDetails, onClose }) => {
   const [showConfrimModal, setShowConfirmModal] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
 
+  const modalRef = useRef<HTMLDivElement>(null);
+  const slotRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
   const doctor = doctors.find((d) => d.id === doctorDetails?.id);
+
+  useEffect(() => {
+    modalRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+
+      const activeIndex = slotRefs.current.findIndex(
+        (ref) => ref === document.activeElement
+      );
+
+      if (activeIndex !== -1) {
+        if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+          e.preventDefault();
+          const nextIndex = (activeIndex + 1) % slotRefs.current.length;
+          slotRefs.current[nextIndex]?.focus();
+        } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+          e.preventDefault();
+          const prevIndex =
+            (activeIndex - 1 + slotRefs.current.length) %
+            slotRefs.current.length;
+          slotRefs.current[prevIndex]?.focus();
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
 
   return (
     <div
@@ -22,6 +55,8 @@ const BookingModal: React.FC<Props> = ({ doctorDetails, onClose }) => {
       role="dialog"
       aria-modal="true"
       aria-labelledby="booking-modal-title"
+      ref={modalRef}
+      tabIndex={-1}
     >
       <div className="bg-black bg-opacity-80 border border-main-color  rounded-xl p-6 w-[90%] max-w-md">
         <div className="mb-3 flex items-center justify-between text-white">
@@ -53,9 +88,12 @@ const BookingModal: React.FC<Props> = ({ doctorDetails, onClose }) => {
           <p>Available slots:</p>
 
           <div className="grid lg:grid-cols-2 gap-4 text-white">
-            {doctor?.availability?.map((slot) => (
+            {doctor?.availability?.map((slot, index) => (
               <div key={slot}>
                 <button
+                  ref={(el) => {
+                    slotRefs.current[index] = el;
+                  }}
                   onClick={() => {
                     setSelectedSlot(slot);
                     setShowConfirmModal(true);

@@ -5,10 +5,10 @@ import { DoctorTypes } from "../types";
 type Props = {
   doctor: DoctorTypes;
   onBook: (doctorDetails: DoctorTypes) => void;
+  buttonRef?: (el: HTMLButtonElement | null) => void;
 };
 
-const DoctorCard: React.FC<Props> = ({ doctor, onBook }) => {
-  // console.log(doctor);
+const DoctorCard: React.FC<Props> = ({ doctor, onBook, buttonRef }) => {
   return (
     <div
       className="bg-black/35 rounded-2xl shadow-md p-4 flex flex-col items-center text-center gap-2 hover:shadow-lg transition hover:scale-105 hover:bg-black duration-300"
@@ -35,6 +35,7 @@ const DoctorCard: React.FC<Props> = ({ doctor, onBook }) => {
         {doctor.availability.length > 0 ? "Available" : "Not Available"}
       </p>
       <button
+        ref={buttonRef}
         className="mt-2 bg-main-color text-black px-4 py-2 rounded-xl hover:bg-main-color/60 hover:text-white duration-300 focus:outline-none focus:ring-[4px] focus:ring-white cursor-pointer"
         onClick={() => {
           if (doctor.availability.length > 0) {

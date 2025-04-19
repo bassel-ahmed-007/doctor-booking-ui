@@ -22,7 +22,7 @@ const FilterBar: React.FC<Props> = ({
         <select
           value={selectedSpecialty}
           onChange={(e) => onSpecialtyChange(e.target.value)}
-          className="px-2 py-1 lg:px-4 lg:py-2 bg-black/35 border border-black text-white shadow-sm focus:outline-none cursor-pointer"
+          className="px-2 py-1 lg:px-4 lg:py-2 bg-black/35 border border-black text-white shadow-sm focus:outline-none focus:ring-[4px] focus:ring-white cursor-pointer"
           aria-label="Filter by Specialty"
         >
           <option value="All">All Specialties</option>
@@ -39,7 +39,7 @@ const FilterBar: React.FC<Props> = ({
             checked={onlyAvailable}
             onChange={onAvailabilityToggle}
             aria-label="Show only available doctors"
-            className="w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] mr-[15px] appearance-none border-2 border-main-color"
+            className="w-[20px] h-[20px] lg:w-[30px] lg:h-[30px] mr-[15px] appearance-none border-2 border-main-color focus:outline-none focus:ring-[4px] focus:ring-white"
           />
           <span className="text-sm text-white font-semibold">
             Available Only
