@@ -59,15 +59,25 @@ const DoctorsGrid = ({
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {filteredDoctors.map((doc, index) => (
-        <DoctorCard
-          key={doc.id}
-          doctor={doc}
-          onBook={setSelecteddoctorDetails}
-          buttonRef={(el) => (cardRefs.current[index] = el)}
-        />
-      ))}
+    <div>
+      {filteredDoctors?.length === 0 ? (
+        <div className="h-[300px] flex items-center justify-center">
+          <p className="text-slate-200 text-2xl lg:text-3xl font-semibold">
+            No Doctor found!
+          </p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {filteredDoctors?.map((doc, index) => (
+            <DoctorCard
+              key={doc.id}
+              doctor={doc}
+              onBook={setSelecteddoctorDetails}
+              buttonRef={(el) => (cardRefs.current[index] = el)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

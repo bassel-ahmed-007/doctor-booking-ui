@@ -110,6 +110,7 @@ export const doctors = [
 ];
 
 export const specialties = [
+  "Surgery",
   "Pediatrics",
   "Cardiology",
   "Neurology",
