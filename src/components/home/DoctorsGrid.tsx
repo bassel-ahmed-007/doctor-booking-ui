@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import DoctorCard from "../DoctorCard";
 import { doctors } from "../../mock/doctors";
 import { DoctorTypes } from "../../types";
