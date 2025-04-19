@@ -3,13 +3,12 @@ import { useAppointmentStore } from "../store/useAppointmentStore";
 import { DoctorTypes } from "../types";
 
 type Props = {
-  title: string;
   doctorDetails?: DoctorTypes;
   slot?: string | null;
   onClose: () => void;
 };
 
-const ConfirmModal = ({ onClose, title, doctorDetails, slot }: Props) => {
+const ConfirmModal = ({ onClose, doctorDetails, slot }: Props) => {
   const bookAppointment = useAppointmentStore((state) => state.bookAppointment);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -47,14 +46,14 @@ const ConfirmModal = ({ onClose, title, doctorDetails, slot }: Props) => {
       className="fixed inset-0 bg-black/85 bg-opacity-50 flex items-center justify-center z-50"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="booking-modal-title"
+      aria-labelledby="Confirm"
       ref={modalRef}
       tabIndex={-1}
     >
       <div className="bg-black bg-opacity-80 border border-main-color  rounded-xl p-6 w-[90%] max-w-sm">
         <div className="mb-3 flex flex-col items-center justify-center gap-2 text-white">
-          <h2 id="booking-modal-title" className="text-xl font-bold ">
-            {title}
+          <h2 id="booking-modal-title" className="text-[16px] font-bold ">
+            Confirm booking with {doctorDetails?.name}?
           </h2>
 
           <p>

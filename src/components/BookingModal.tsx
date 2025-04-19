@@ -68,6 +68,7 @@ const BookingModal: React.FC<Props> = ({ doctorDetails, onClose }) => {
             onClick={onClose}
             type="button"
             role="close"
+            aria-label="close"
             className="w-[30px] h-[30px]  font-bold p-[5px] border-[2px] rounded-full flex items-center justify-center focus:outline-none focus:ring-[4px] focus:ring-main-color hover:text-black hover:bg-white hover:border-[2px] duration-200 cursor-pointer"
           >
             x
@@ -113,7 +114,6 @@ const BookingModal: React.FC<Props> = ({ doctorDetails, onClose }) => {
 
       {showConfrimModal && (
         <ConfirmModal
-          title="Confirm Booking?"
           slot={selectedSlot}
           doctorDetails={doctor}
           onClose={() => setShowConfirmModal(false)}

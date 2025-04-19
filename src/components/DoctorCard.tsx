@@ -13,7 +13,7 @@ const DoctorCard: React.FC<Props> = ({ doctor, onBook, buttonRef }) => {
     <div
       className="bg-black/35 rounded-2xl shadow-md p-4 flex flex-col items-center text-center gap-2 hover:shadow-lg transition hover:scale-105 hover:bg-black duration-300"
       role="region"
-      aria-label={`Doctor ${doctor.name}`}
+      aria-label={`${doctor.name}`}
     >
       <img
         src={doctor.photo}
@@ -22,8 +22,12 @@ const DoctorCard: React.FC<Props> = ({ doctor, onBook, buttonRef }) => {
         loading="lazy"
       />
       <h2 className="text-lg font-semibold text-white">{doctor.name}</h2>
-      <p className="text-sm text-gray-300">{doctor.specialty}</p>
-      <p className="text-sm text-white">⭐ {doctor.rating}</p>
+      <p aria-label="Doctor specialty" className="text-sm text-gray-300">
+        {doctor.specialty}
+      </p>
+      <p aria-label="Doctor rating" className="text-sm text-white">
+        ⭐ {doctor.rating}
+      </p>
       <p className="text-sm text-white">{doctor.location}</p>
       <p
         className={`${

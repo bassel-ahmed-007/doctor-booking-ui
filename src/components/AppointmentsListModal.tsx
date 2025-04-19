@@ -69,6 +69,7 @@ const AppointmentsListModal = ({ onClose }: Props) => {
             onClick={onClose}
             type="button"
             role="close"
+            aria-label="close"
             className="w-[30px] h-[30px] text-white font-bold p-[5px] border-[2px] rounded-full flex items-center justify-center focus:outline-none focus:ring-[4px] focus:ring-main-color hover:text-black hover:bg-white hover:border-[2px] duration-200 cursor-pointer"
           >
             x
@@ -108,6 +109,7 @@ const AppointmentsListModal = ({ onClose }: Props) => {
                   onClick={() => cancelAppointment(appt?.doctorId, appt?.time)}
                   type="button"
                   role="cancel"
+                  aria-label={`cancel ${appt?.time} with ${appt?.doctorName}`}
                   className="text-red-600 font-bold p-[5px] border-[2px] rounded-[10px] flex items-center justify-center hover:text-white hover:bg-red-600 hover:border-red-600 focus:outline-none focus:ring-[4px] focus:ring-main-color duration-200 cursor-pointer"
                 >
                   Cancel
