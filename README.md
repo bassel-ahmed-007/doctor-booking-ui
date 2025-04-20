@@ -52,6 +52,6 @@ npm run dev
 
 [https://drive.google.com/file/d/1N2wUbFrnJIuyXiyTMwC35MGYu4s3seN\_/view?usp=sharing](https://drive.google.com/file/d/1N2wUbFrnJIuyXiyTMwC35MGYu4s3seN_/view?usp=sharing)
 
-## vercel deployment link
+## netlify deployment link
 
 [https://dbooking.netlify.app/](https://dbooking.netlify.app/)
