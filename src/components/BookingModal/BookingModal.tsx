@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { doctors } from "../mock/doctors";
-import { DoctorTypes } from "../types";
-import ConfirmModal from "./ConfirmModal";
+import { doctors } from "../../mock/doctors";
+import { DoctorTypes } from "../../types";
+import ConfirmModal from "../ConfirmModal";
 
 type Props = {
   doctorDetails: DoctorTypes;

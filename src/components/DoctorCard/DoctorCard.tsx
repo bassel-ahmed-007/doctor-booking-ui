@@ -1,6 +1,6 @@
 import React from "react";
 import { toast } from "sonner";
-import { DoctorTypes } from "../types";
+import { DoctorTypes } from "../../types";
 
 type Props = {
   doctor: DoctorTypes;
@@ -17,10 +17,11 @@ const DoctorCard: React.FC<Props> = ({ doctor, onBook, buttonRef }) => {
     >
       <img
         src={doctor.photo}
-        alt={`${doctor.name}'s profile`}
+        alt={`${doctor.name}'s photo`}
         className="w-24 h-24 rounded-full object-cover"
         loading="lazy"
       />
+
       <h2 className="text-lg font-semibold text-white">{doctor.name}</h2>
       <p aria-label="Doctor specialty" className="text-sm text-gray-300">
         {doctor.specialty}

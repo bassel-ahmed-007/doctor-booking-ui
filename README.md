@@ -1,54 +1,48 @@
-# React + TypeScript + Vite
+# Doctor Booking UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, accessible appointment booking UI built with React & TailwindCSS.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React + TypeScript
+- TailwindCSS
+- Zustand (state management)
+- Mock data (no backend)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Doctor Directory View with filters (specialty, availability)
+- Booking Modal with time slots
+- My Appointments Summary View Modal
+- Fully responsive
+- Accessible via keyboard
+- Uses `aria-*`, roles, and Lighthouse-passed accessibility
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## How AI Tools Were Used
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- ChatGPT: Helped scaffold components, optimize accessibility, and generate mock data.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Known Limitations
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- Time slots are mocked and not dynamically generated per doctor or day
+- Minimal test coverage; only basic UI behavior is verified
+- No animations or transitions for modal open/close
+- Didn’t add all the units tests due to time constraints.
+- No form validation in the booking flow
+
+## Next Steps
+
+- Add support for dynamic time slots based on doctor's real schedule
+- Expand unit test coverage using React Testing Library
+- Implement pagination or infinite scroll for long doctor lists
+- Add animated transitions for modals and UI components
+- Support rescheduling of appointments
+
+## 🚀 Getting Started
+
+```bash
+git clone https://github.com/bassel-ahmed-007/doctor-booking-ui.git
+cd doctor-booking-ui
+npm install
+npm run dev
 ```

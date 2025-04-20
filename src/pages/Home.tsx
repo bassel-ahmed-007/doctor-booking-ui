@@ -1,9 +1,9 @@
 import { useState } from "react";
-import BookingModal from "../components/BookingModal";
 import FilterBar from "../components/FilterBar";
 import { DoctorTypes } from "../types";
 import DoctorsGrid from "../components/home/DoctorsGrid";
 import AppointmentsListModal from "../components/AppointmentsListModal";
+import BookingModal from "../components/BookingModal/BookingModal";
 
 const Home = () => {
   const [selecteddoctorDetails, setSelecteddoctorDetails] =
