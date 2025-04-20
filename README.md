@@ -37,6 +37,7 @@ A responsive, accessible appointment booking UI built with React & TailwindCSS.
 - Implement pagination or infinite scroll for long doctor lists
 - Add animated transitions for modals and UI components
 - Support rescheduling of appointments
+- use react-helmet to optimize SEO
 
 ## 🚀 Getting Started
 
