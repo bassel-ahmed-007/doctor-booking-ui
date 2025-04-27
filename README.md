@@ -48,9 +48,7 @@ npm install
 npm run dev
 ```
 
-## link for the video BasselAhmed_presentation
 
-[https://drive.google.com/file/d/1N2wUbFrnJIuyXiyTMwC35MGYu4s3seN\_/view?usp=sharing](https://drive.google.com/file/d/1N2wUbFrnJIuyXiyTMwC35MGYu4s3seN_/view?usp=sharing)
 
 ## netlify deployment link
 
